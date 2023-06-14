@@ -1,5 +1,6 @@
 // business logic //
 let rollTotal = 0
+let playerOneTotal = 0
 
 function getRsndomIntInclusive(min, max){
     min = Math.ceil(1);
@@ -17,5 +18,19 @@ return rollTotal;
 } else {
     rollTotal = 0
     return "You rolled a One"
+};
+}
+
+function pushButton() {
+    if (rollTotal >= 2) {
+      playerOneTotal += rollTotal;
+      rollTotal = 0;
+    }
+}
+/*function pushTotal() {
+    if (rollTotal >= 2) {
+        playerOneTotal += rollTotal;
+        rollTotal = 0;
+    }
 }
 }
