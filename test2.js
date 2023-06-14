@@ -1,6 +1,7 @@
-// business logic //
 let rollTotal = 0
 let playerOneTotal = 0
+let playerTwoTotal = 0
+let playerTurn = 1
 
 function getRsndomIntInclusive(min, max){
     min = Math.ceil(1);
@@ -22,20 +23,24 @@ return rollTotal;
 }
 
 function pushButton() {
-    if (rollTotal >= 2) {
+    if (rollTotal >= 2 && playerTurn === 1) {
       playerOneTotal += rollTotal;
       rollTotal = 0;
+      playerTurn = 2;
+      console.log(playerTurn);
+      checkFinalScore ();
+    } else if (rollTotal >= 2 && playerTurn ===2 ) {
+            playerTwoTotal += rollTotal;
+            rollTotal = 0;  
+            playerTurn = 1; 
+            console.log(playerTurn);
+            checkFinalScore ();
     } else {
         return "You have not rolled your dice yet!"
     }
 }
-if (rollTotal = 0) {
-    playerTwoTotal += rollTotal;
-}
-/*function pushTotal() {
-    if (rollTotal >= 2) {
-        playerOneTotal += rollTotal;
-        rollTotal = 0;
-    }
-}
-}
+function checkFinalScore () {
+    if (playerOneTotal >= 20) {return "Player One Wins!" || (playerTwoTotal >=20){return "Player Two is the WINER!"
+
+    
+}   
